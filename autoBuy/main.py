@@ -4,6 +4,7 @@
 import requests
 import time
 import json
+from datetime import datetime
 
 
 class JD:
@@ -40,8 +41,9 @@ class JD:
 
     def shopping(self):
         # goods_url = input('商品链接：')
-        goods_url = 'https://item.jd.com/100012043978.html'
+        # goods_url = 'https://item.jd.com/100012043978.html'
         # goods_url = 'https://item.jd.com/100006622021.html'
+        goods_url = 'https://item.jd.com/393841.html'
         self.goods_id = goods_url[goods_url.rindex('/') + 1:goods_url.rindex('.')]
         print(self.goods_id)
         JD.headers['referer'] = goods_url
@@ -59,4 +61,16 @@ class JD:
 
 
 jd = JD()
-jd.login()
+
+
+# jd.login()
+
+# 每n秒执行一次
+def timer(n):
+    while True:
+        print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+        time.sleep(n)
+        # jd.login()
+
+# 1s
+timer(1)
