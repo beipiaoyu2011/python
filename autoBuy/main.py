@@ -9,14 +9,12 @@ from datetime import datetime
 
 class JD:
     headers = {
-        'referer': '',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36',
-    }
+        'referer': '', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.113 Safari/537.36',
+        }
 
     def __init__(self):
         self.index = 'https://www.jd.com/'
-        self.user_url = 'https://passport.jd.com/user/petName/getUserInfoForMiniJd.action?&callback=jsonpUserinfo&_=' + str(
-            int(time.time() * 1000))  # 检测用户信息
+        self.user_url = 'https://passport.jd.com/user/petName/getUserInfoForMiniJd.action?&callback=jsonpUserinfo&_=' + str(int(time.time() * 1000))  # 检测用户信息
         self.buy_url = 'https://cart.jd.com/gate.action?pid={}&pcount=1&ptype=1'  # 添加到购物车
         self.pay_url = 'https://cart.jd.com/gotoOrder.action'  # 提交订单
         self.pay_success = 'https://trade.jd.com/shopping/order/submitOrder.action'  # 付款页面
@@ -51,8 +49,7 @@ class JD:
         print("buyUrl", buy_url)
         self.session.get(url=buy_url, headers=JD.headers)  # 添加到购物车
         self.session.get(url=self.pay_url, headers=JD.headers)  # 提交订单
-        response = self.session.post(
-            url=self.pay_success, headers=JD.headers)  # 提交订单
+        response = self.session.post(url=self.pay_success, headers=JD.headers)  # 提交订单
         order_id = json.loads(response.text).get('orderId')
         print("order_id", order_id)
         if order_id:
@@ -71,6 +68,7 @@ def timer(n):
         print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         time.sleep(n)
         jd.login()
+
 
 # 1s
 timer(1)
