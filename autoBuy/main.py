@@ -21,7 +21,7 @@ class JD:
         self.pay_url = 'https://cart.jd.com/gotoOrder.action'  # 提交订单
         self.pay_success = 'https://trade.jd.com/shopping/order/submitOrder.action'  # 付款页面
         self.goods_id = ''
-        self.thor = 'D5C7F962E42959500EFA3FC4E15230FBA0C918AF6CF035CF3E34E459BD9F94A883403D76E6A60C9A0AC7CBA69250ACD44143FD5D91E845969B72482ADD15D314AA0165D8A4BD6B17127EA5902173962A4557DB2091DA031C48972DEBFBEC019EC910817B5B7FE63E3EF6BD14AEBC5EC5B42C2860C2AAE9AB846F08D9DF544271EE5F771F00034C268067DFF7C31B336D'  # 用户的cookie
+        self.thor = '1111'  # 用户的cookie
         self.session = requests.session()
 
     def login(self):  # 直接加上cookie访问用户信息。
