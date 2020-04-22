@@ -21,7 +21,7 @@ class JD:
         self.pay_url = 'https://cart.jd.com/gotoOrder.action'  # 提交订单
         self.pay_success = 'https://trade.jd.com/shopping/order/submitOrder.action'  # 付款页面
         self.goods_id = ''
-        self.thor = '1111'  # 用户的cookie
+        self.thor = 'D5C7F962E429595EFA3FC4E15230FB451C002BCA2357BF7617BEEDC18840A1579C70F4014A79EB0BEE909D8D90CE22A6FAE2D3A877DFD4A94F6948EA67F446D91516662400C6A1E36989D55E4E6CB8D53152560E701A30E79EB4C86EF72681DA0CC4A2CA2E8150077F4F4EC9E066219086725C5C39C280599FF631ADD23BE7D097762B8D208D32A41D54AD6B024132'  # 用户的cookie
         self.session = requests.session()
 
     def login(self):  # 直接加上cookie访问用户信息。
@@ -41,9 +41,9 @@ class JD:
 
     def shopping(self):
         # goods_url = input('商品链接：')
-        # goods_url = 'https://item.jd.com/100012043978.html'
+        goods_url = 'https://item.jd.com/100012043978.html'
         # goods_url = 'https://item.jd.com/100006622021.html'
-        goods_url = 'https://item.jd.com/393841.html'
+        # goods_url = 'https://item.jd.com/393841.html'
         self.goods_id = goods_url[goods_url.rindex('/') + 1:goods_url.rindex('.')]
         print(self.goods_id)
         JD.headers['referer'] = goods_url
@@ -70,7 +70,7 @@ def timer(n):
     while True:
         print(datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         time.sleep(n)
-        # jd.login()
+        jd.login()
 
 # 1s
 timer(1)
