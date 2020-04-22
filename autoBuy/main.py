@@ -11,18 +11,12 @@ class JD:
 
     def __init__(self):
         self.index = 'https://www.jd.com/'
-        # 检测用户信息
-        self.user_url = 'https://passport.jd.com/user/petName/getUserInfoForMiniJd.action?&callback=jsonpUserinfo&_=' + str(int(time.time() * 1000))
-        # 添加到购物车
-        self.buy_url = 'https://cart.jd.com/gate.action?pid={}&pcount=1&ptype=1'
-        # 提交订单
-        self.pay_url = 'https://cart.jd.com/gotoOrder.action'
-        # 付款页面
-        self.pay_success = 'https://trade.jd.com/shopping/order/submitOrder.action'
-        # 商品id
+        self.user_url = 'https://passport.jd.com/user/petName/getUserInfoForMiniJd.action?callback=jsonpUserinfo&_=' # 检测用户信息
+        self.buy_url = 'https://cart.jd.com/gate.action?pid={}&pcount=1&ptype=1'# 添加到购物车
+        self.pay_url = 'https://cart.jd.com/gotoOrder.action'# 提交订单
+        self.pay_success = 'https://trade.jd.com/shopping/order/submitOrder.action'# 付款页面
         self.goods_id = ''
-        # 用户的cookie
-        self.thor = ''
+        self.thor = ''# 用户的cookie
         self.session = requests.session()
 
     def login(self):  # 直接加上cookie访问用户信息。
