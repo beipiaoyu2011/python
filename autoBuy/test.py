@@ -6,6 +6,10 @@ import xlrd
 # 实现对 excel文件的写入
 import xlwt
 
+from xlrd import xldate_as_tuple
+from datetime import datetime
+import time
+
 ms = []
 ra = []
 rb = []
@@ -27,7 +31,10 @@ for k in range(1, 2):
   for i in range(1, rs1):
     # 读取 Sheet1中每一行第四列的值: 出发时间
     t14 = table_1.cell(i, 4).value
-
+    print(table_1.cell(i, 2).value)
+    if table_1.cell(i, 4).ctype == 3:
+      date = xldate_as_tuple(t14, 0)
+      print(date)
     # t12 = t14 - table_1.cell(i, 2).value
     # print t12
   #   for j in range(1, rs2):
